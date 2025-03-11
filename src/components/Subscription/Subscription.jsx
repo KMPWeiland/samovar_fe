@@ -1,8 +1,8 @@
 import './Subscription.css'
 
-function Subscription({ id, title, price, status }) {
+function Subscription({ id, title, price, status, onClick }) {
   return (
-    <div className='subscription-card'>
+    <div className='subscription-card' onClick={() => onClick(id)}>
       <p><i>Subscription ID #{id}</i></p>
       <h3>{title}</h3>
       <p>Price: ${price}</p>
