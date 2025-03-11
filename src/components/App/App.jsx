@@ -22,22 +22,22 @@ function App() {
       customer_id: 120
       }
   ]
-  const [subscriptionsData, setSubscriptionsData] = useState(dummySubscriptions);
+  const [subscriptionsData, setSubscriptionsData] = useState([]);
   const [ seletedSubscriptionId, setSeletedSubscriptionId ] = useState(null);
   const [ view, setView] = useState("subscriptions_list")
 
-  // function getSubscriptions() {
-  //   fetch('https://localhost3000.../subscriptions')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       subscriptionsData(data);
-  //     })
-  //     .catch(error => console.log(error.message))
-  // }
+  function getSubscriptions() {
+    fetch('http://localhost:3000/api/v1/subscriptions')
+      .then(response => response.json())
+      .then(data => {
+        setSubscriptionsData(data);
+      })
+      .catch(error => console.log("ERROR: ", error.message))
+  }
 
-  // useEffect(() => {
-  //   getSubscriptions();
-  // }, [])
+  useEffect(() => {
+    getSubscriptions();
+  })
 
   function handleView(target, id) {
     setView(target);
@@ -50,6 +50,21 @@ function App() {
   const handleSubscriptionClick = (id) => {
     handleView("DetailView", id);
   };
+
+  function deleteSubscription(id) {
+    console.log("id: ", id);
+    const filteredSubscriptions = subscriptionsData.filter(subscription => subscription.id !== id)
+    setSubscriptionsData(filteredSubscriptions)
+  }
+
+  // function handleDeleteSubscription(id){
+  //   fetch(`'http://localhost:3001/api/v1/subscriptions/${id}`, {
+  //     method: "DELETE"
+  //     headers: {
+  //       'Content-type': 'application/json'
+  //     }
+  //   })
+  // }
 
   // const handleSubscriptionClick = (subscription) => {
   //   setSeletedSubscriptionId(subscription)
@@ -66,8 +81,8 @@ function App() {
         <h2>Premium global teas, to your front door</h2>
         <p>The following is a record of all your subscriptions:</p>
         {!dummySubscriptions.length && <h2>No subscriptions yet!</h2> }
-        <SubscriptionsContainer subscriptions={subscriptionsData}
-        onSubscriptionClick={handleSubscriptionClick}
+        <SubscriptionsContainer subscriptions={subscriptionsData} 
+                                deleteSubscription={deleteSubscription} onSubscriptionClick={handleSubscriptionClick}
         /> 
       </main>
     )

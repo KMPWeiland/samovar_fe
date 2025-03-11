@@ -1,16 +1,20 @@
 import Subscription from '../Subscription/Subscription';
 import './SubscriptionsContainer.css';
 
-function SubscriptionsContainer({subscriptions, onSubscriptionClick}) {
-  const subscriptionCards = subscriptions.map(subscription => {  
+function SubscriptionsContainer({subscriptions, deleteSubscription, onSubscriptionClick}) {
+  console.log("SUBS.data: ", subscriptions.data)
+  console.log("Just SUBS: ", subscriptions)
+  const subscriptionsDetails = subscriptions.data || []
+  const subscriptionCards = subscriptionsDetails.map(subscription => {  
     return (
       <Subscription
       key={subscription.id}
       id={subscription.id}
-      title={subscription.title}
-      price={subscription.price}
-      status={subscription.status}
+      title={subscription.attributes.title}
+      price={subscription.attributes.price}
+      status={subscription.attributes.status}
       onClick={onSubscriptionClick}
+      deleteSubscription={deleteSubscription}
       />
     )
   })
