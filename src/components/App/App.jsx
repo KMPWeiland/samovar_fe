@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import reactLogo from '../../assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import SubscriptionsContainer from '../SubscriptionsContainer/SubscriptionsContainer';
+import DetailView from '../DetailView/DetailView';
 
 function App() {
   const dummySubscriptions = [
@@ -21,18 +22,70 @@ function App() {
       customer_id: 120
       }
   ]
-  const [subscriptions, setSubscriptions] = useState(dummySubscriptions);
+  const [subscriptionsData, setSubscriptionsData] = useState(dummySubscriptions);
+  const [ seletedSubscriptionId, setSeletedSubscriptionId ] = useState(null);
+  const [ view, setView] = useState("subscriptions_list")
 
-  return ( 
-    <main className='App'>
-      <h1>Samovar</h1>
-      <h2>Premium global teas, to your front door</h2>
-      <p>The following is a record of all your subscriptions:</p>
-      {!subscriptions.length && <h2>No subscriptions yet!</h2> }
-      <SubscriptionsContainer subscriptions={subscriptions} /> 
-    </main>
-  )
-}
+  // function getSubscriptions() {
+  //   fetch('https://localhost3000.../subscriptions')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       subscriptionsData(data);
+  //     })
+  //     .catch(error => console.log(error.message))
+  // }
+
+  // useEffect(() => {
+  //   getSubscriptions();
+  // }, [])
+
+  function handleView(target, id) {
+    setView(target);
+    
+    if (id) {
+      setSeletedSubscriptionId(id)
+    }
+  }
+
+  const handleSubscriptionClick = (id) => {
+    handleView("DetailView", id);
+  };
+
+  // const handleSubscriptionClick = (subscription) => {
+  //   setSeletedSubscriptionId(subscription)
+  // }
+
+  // const handleBackToSubscriptionsList = (subscription) => {
+  //   setSeletedSubscriptionId(null)
+  // }
+
+  if (view === "subscriptions_list") {
+    return ( 
+      <main className='App'>
+        <h1>Samovar</h1>
+        <h2>Premium global teas, to your front door</h2>
+        <p>The following is a record of all your subscriptions:</p>
+        {!dummySubscriptions.length && <h2>No subscriptions yet!</h2> }
+        <SubscriptionsContainer subscriptions={subscriptionsData}
+        onSubscriptionClick={handleSubscriptionClick}
+        /> 
+      </main>
+    )
+  } else if ( view === "DetailView" && seletedSubscriptionId) {
+    const subscription = subscriptionsData.find( sub => sub.id === seletedSubscriptionId);
+    return (
+      <main className='App'>
+        <h1>Samovar</h1>
+        <h2>Premium global teas, to your front door</h2>
+        <div className='detail-view'>
+          <DetailView subscription={subscription} />
+        </div>
+      </main>
+    )
+  }
+
+  }
+
 
 export default App;
 
