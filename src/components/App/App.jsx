@@ -42,6 +42,16 @@ function App() {
     getSubscriptions();
   }, [])
 
+  function getSortedSubscriptions() {
+    fetch('http://localhost:3000/api/v1/subscriptions?sort=price')
+      .then(response => response.json())
+      .then(data => {
+        console.log("Fetched SORTED subscriptions:", data);
+        setSubscriptionsData(data);
+      })
+      .catch(error => console.log("ERROR fetching sorted subscriptions:", error.message));
+  }
+
   function handleView(target, id) {
     console.log(`Changing view to ${target} with subscription ID: ${id}`);
     setView(target);
@@ -84,23 +94,34 @@ function App() {
 
     console.log(`Deleting subscription with ID: ${id}`);
 
-    if (subscriptionsData.data) {
-      const updatedData = subscriptionsData.data.filter(subscription => subscription.id !== id);
-      setSubscriptionsData({ ...subscriptionsData, data: updatedData });
-    }
+    
     // const filteredSubscriptions = subscriptionsData.data.filter(subscription => subscription.id !== id)
     // setSubscriptionsData(filteredSubscriptions)
-  }
+  
 
   // function handleDeleteSubscription(id){
-  //   fetch(`'http://localhost:3001/api/v1/subscriptions/${id}`, {
-  //     method: "DELETE"
-  //     headers: {
-  //       'Content-type': 'application/json'
-  //     }
-  //   })
-  
-  // }
+    fetch(`http://localhost:3000/api/v1/subscriptions/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log(`Successfully deleted subscription ${id}`);
+
+        if (subscriptionsData.data) {
+          const updatedData = subscriptionsData.data.filter(subscription => subscription.id !== id);
+          setSubscriptionsData({ ...subscriptionsData, data: updatedData });
+        }
+
+      } else {
+        console.error(`Failed to delete subscription ${id}`);
+      }
+    })
+    .catch(error => console.error("Error:", error));
+  }
+
 
   // const handleSubscriptionClick = (subscription) => {
   //   setSeletedSubscriptionId(subscription)
@@ -117,7 +138,12 @@ function App() {
         <p><i>Premium global teas, to your front door</i></p>
         <h2>Admin Portal</h2>
         <p>The following is a record of all your subscriptions</p>
-        <p>Sort by Price</p>
+        <a href="#" onClick={(e) => { 
+          e.preventDefault();
+          getSortedSubscriptions();
+        }}>
+          Sort by Price
+        </a>
         {!subscriptionsData.data?.length === 0 && <h2>No subscriptions yet!</h2> }
         <SubscriptionsContainer subscriptions={subscriptionsData} 
                                 deleteSubscription={deleteSubscription} 

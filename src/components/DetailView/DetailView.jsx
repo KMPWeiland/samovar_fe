@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react'
 import './DetailView.css'
+import teaIcon from '../../assets/tea-svgrepo-com.svg'
+import awardBadge from '../../assets/award-badge-svgrepo-com.svg'
+import awardTrophy from '../../assets/award-trophy-with-star-shape-svgrepo-com.svg'
+import oliveBranches from '../../assets/olive-branches-award-symbol-svgrepo-com.svg'
+
 
 function DetailView( {subscription} ){
   const [subscriptionDetails, setSubscriptionDetails] = useState({})
@@ -27,10 +32,19 @@ function DetailView( {subscription} ){
   //   const customer = subscriptionDetails.relationships?.customer?.data;
   //   const teas = subscriptionDetails.relationships?.teas?.data || [];
 
-
+  let iconToShow = teaIcon; 
+  
+  if (subscription.attributes.title === "Premium") {
+    iconToShow = awardBadge;
+  } else if (subscription.attributes.title === "Deluxe") {
+    iconToShow = awardTrophy;
+  } else if (subscription.attributes.title === "Gold") {
+    iconToShow = oliveBranches;
+  }
 
   return (
     <div>
+      <img src={iconToShow} alt="Subscription Icon" />
       <h3>Subscription Level: {subscription.attributes.title || 'Unknown Subscription'}</h3>
       <div className='details-content'>
       <p>Subscription ID: {subscription.attributes.id}</p>
