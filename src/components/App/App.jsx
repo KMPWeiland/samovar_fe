@@ -135,14 +135,14 @@ function App() {
     return ( 
       <main className='App'>
         <h1>Samovar</h1>
-        <p><i>Premium global teas, to your front door</i></p>
+        <p class="brush-script"><i>Premium global teas, to your front door</i></p>
         <h2>Admin Portal</h2>
         <p>The following is a record of all your subscriptions</p>
         <a href="#" onClick={(e) => { 
           e.preventDefault();
           getSortedSubscriptions();
         }}>
-          Sort by Price
+          <strong>Sort by Price</strong>
         </a>
         {!subscriptionsData.data?.length === 0 && <h2>No subscriptions yet!</h2> }
         <SubscriptionsContainer subscriptions={subscriptionsData} 
@@ -161,7 +161,7 @@ function App() {
         <p>Subscription Details</p>
         <div className='detail-view'>
           <DetailView subscription={selectedSubscription} />
-          <button onClick={() => handleView("subscriptions_list")}>Back to Subscriptions</button>
+          <button className='backToListButton' onClick={() => handleView("subscriptions_list")}>Back to Subscriptions</button>
         </div>
       </main>
     );

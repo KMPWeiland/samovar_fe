@@ -3,3 +3,9 @@
   border: 3px solid black;
   padding: 10px;
 }
+
+.deleteButton {
+  background-color: #3e55b1;
+  border: 4px;
+  margin: 2px;
+}

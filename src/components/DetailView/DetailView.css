@@ -1,4 +1,10 @@
 .detail-view {
   box-sizing: border-box;
-  border: 3px solid black;
-  pa
+  border: 3px solid #3e55b1;
+}
+
+.backToListButton {
+  background-color: #3e55b1;
+  border: none;
+  margin: 2px;
+}
