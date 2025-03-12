@@ -1,4 +1,85 @@
+.admin-portal-heading {
+  margin-top: 1.5625rem;
+  margin-bottom: 0;
+  color: #443850;
+}
+
+.portal-view-type {
+  margin-bottom: 25px;
+}
+
 .detail-view {
   box-sizing: border-box;
-  border: 3px solid black;
-  pa
+  border-radius: 2.5em;
+  border: 2px solid #AA748D;
+  background-color: #B18198;
+}
+
+.backToListButton {
+  background-color: #8E5572;
+  border: none;
+  margin: 0.9375rem;
+  color: #443850;
+
+}
+
+.backToListButton:hover {
+  background-color: #F2F7F2;
+}
+
+.subscription-icon {
+  padding-top: 0.625rem;
+  padding-bottom: 0px;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  /* margin-top:25px;
+  margin-bottom: 5px; */
+  color: #443850;
+}
+
+h4 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  /* margin-top:25px;
+  margin-bottom: 5px; */
+  color: #443850;
+}
+
+li {
+  align-items: center;
+}
+
+.teas-info {
+  margin-top:.5em;
+  margin-bottom: 0.3em;  
+  color: #443850;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tea-list {
+  margin-top: 0px;
+  list-style-type: none; 
+  padding: 0;  
+}
+
+.tea-list li {
+  position: relative; 
+  padding-left: 20px; 
+  margin-bottom: 5px;  
+}
+
+.tea-list li::before {
+  content: '•';  
+  left: 0;
+  font-size: 1.2em;  
+  line-height: 1; 
+}
+
+.teas-info h4 {
+  margin-bottom: 10px; /* Space between the heading and the list */
+}

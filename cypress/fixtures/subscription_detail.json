@@ -1,0 +1,41 @@
+{
+  "data": {
+      "id": 5,
+      "type": "subscription",
+      "attributes": {
+          "id": 5,
+          "title": "Platinum",
+          "price": 21,
+          "status": "Non-Payment",
+          "frequency": 6
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": 2,
+                  "type": "customer",
+                  "first_name": "Mahalia",
+                  "last_name": "Schumm"
+              }
+          },
+          "teas": {
+              "data": [
+                  {
+                      "id": 4,
+                      "type": "tea",
+                      "name": "Refreshingly Unconcerned With The Vulgar Exigencies Of Veracity",
+                      "tea_type": "Black",
+                      "caffeine_free": false
+                  },
+                  {
+                      "id": 6,
+                      "type": "tea",
+                      "name": "Democritus",
+                      "tea_type": "Herbal",
+                      "caffeine_free": false
+                  }
+              ]
+          }
+      }
+  }
+}

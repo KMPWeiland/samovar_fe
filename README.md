@@ -1,3 +1,44 @@
+# Samovar - Tea Subscription Admin Portal
+
+A React-based admin portal for managing tea subscriptions for Samovar, a premium global tea subscription service.
+
+# Features
+Subscription List View: View all current tea subscriptions in a consolidated list
+Detail View: Access detailed information for any subscription
+Sorting: Sort subscriptions by price
+Subscription Management: Delete subscriptions directly from the interface
+
+# Technical Implementation
+The application is built with React and communicates with a backend API. Key components include:
+App.js: Main application component handling routing and state
+SubscriptionsContainer: Manages the display of subscription cards
+Subscriptions: Cards holding a preview of subcription details
+DetailView: Displays comprehensive information for a selected subscription
+
+# API Integration
+
+The frontend connects to a local API with the following endpoints:
+GET /api/v1/subscriptions: Retrieve all subscriptions
+GET /api/v1/subscriptions?sort=price: Retrieve subscriptions sorted by price
+GET /api/v1/subscriptions/:id: Retrieve details for a specific subscription
+DELETE /api/v1/subscriptions/:id: Delete a subscription
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# STARTER REPO DETAILS AND PROJECT SPEC
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules. This repo also includes Cypress and Router.
