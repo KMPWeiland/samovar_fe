@@ -9,7 +9,7 @@ function Subscription({ id, title, price, status, onClick, deleteSubscription })
       <p>Status: {status}</p>
       <button onClick={(e)=> {
         e.stopPropagation(); 
-        deleteSubscription(id);
+        deleteSubscription(id, e);
       }}
      > 
         Delete Subscription

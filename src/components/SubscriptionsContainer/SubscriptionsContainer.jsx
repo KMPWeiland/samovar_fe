@@ -2,8 +2,7 @@ import Subscription from '../Subscription/Subscription';
 import './SubscriptionsContainer.css';
 
 function SubscriptionsContainer({subscriptions, deleteSubscription, onSubscriptionClick}) {
-  console.log("SUBS.data: ", subscriptions.data)
-  console.log("Just SUBS: ", subscriptions)
+ 
   const subscriptionsDetails = subscriptions.data || []
   const subscriptionCards = subscriptionsDetails.map(subscription => {  
     return (
@@ -28,3 +27,10 @@ function SubscriptionsContainer({subscriptions, deleteSubscription, onSubscripti
 }
 
 export default SubscriptionsContainer;
+
+
+
+
+
+
+
