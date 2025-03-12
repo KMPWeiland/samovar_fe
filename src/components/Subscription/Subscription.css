@@ -1,11 +1,28 @@
 .subscription-card {
   box-sizing: border-box;
-  border: 3px solid black;
-  padding: 10px;
+  border-radius: 2.5em;
+  color: #443850;
+  border: .14em solid #985D79;;
+  background-color: #B18198;
+  padding: 0.6em;
+}
+
+.subscription-card:hover {
+  background-color: #C19AAC;
 }
 
 .deleteButton {
-  background-color: #3e55b1;
-  border: 4px;
-  margin: 2px;
+  color: #443850;
+  background-color: #8E5572;
+  border: 0.25em;
+  margin: 0.135em;
+  padding: 0.6em;
+}
+
+.deleteButton:hover {
+  background-color: #F2F7F2;
+}
+
+.subscription-title-list-view {
+  margin-top: 0.6em;
 }

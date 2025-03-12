@@ -39,6 +39,8 @@ function DetailView( {subscription} ){
   } else if (subscription.attributes.title === "Deluxe") {
     iconToShow = awardTrophy;
   } else if (subscription.attributes.title === "Gold") {
+    iconToShow = awardTrophy;
+  } else if (subscription.attributes.title === "Silver") {
     iconToShow = oliveBranches;
   } else if (subscription.attributes.title === "Business") {
     iconToShow = awardBadge;
@@ -46,10 +48,10 @@ function DetailView( {subscription} ){
 
   return (
     <div>
-      <img src={iconToShow} alt="Subscription Icon" />
+      <img className='subscription-icon' src={iconToShow} alt="Subscription Icon" />
       <h3>Subscription Level: {subscription.attributes.title || 'Unknown Subscription'}</h3>
       <div className='details-content'>
-      <p>Subscription ID: {subscription.attributes.id}</p>
+      <p>Subscription ID #{subscription.attributes.id}</p>
         <p>Price:  ${subscription.attributes.price}</p>
         <p>Status:{subscription.attributes.status}</p>
         <p>Frequency:  Every {subscription.attributes.frequency} weeks</p>
@@ -63,7 +65,7 @@ function DetailView( {subscription} ){
         {subscription.relationships.teas.data.length > 0 && (
           <div className='teas-info'>
             <h4>Teas in Subscription</h4>
-            <ul>
+            <ul className="tea-list">
               {subscription.relationships.teas.data.map(tea => (
                 <li key={tea.id}>
                   <i>{tea.name}</i> | {tea.tea_type}

@@ -1,10 +1,11 @@
 .subscriptions-container {
-  padding: 20px;
+  padding: 1.25em;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 1.25em;
+  color: #443850;
 }
 
 body {
-  background-color: #682e9b;
+  background-color: #BCAA99;
 }

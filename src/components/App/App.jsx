@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import samovar from '../../assets/small-samovar.png'
 // import reactLogo from '../../assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -134,11 +135,14 @@ function App() {
   if (view === "subscriptions_list") {
     return ( 
       <main className='App'>
-        <h1>Samovar</h1>
-        <p class="brush-script"><i>Premium global teas, to your front door</i></p>
-        <h2>Admin Portal</h2>
-        <p>The following is a record of all your subscriptions</p>
-        <a href="#" onClick={(e) => { 
+        <div className='header'>
+          <h1>~Samovar~</h1>
+          <img src={samovar} alt="Samovar Image" />
+          <p class="brush-script"><i>Premium global teas, to your front door</i></p>
+        </div>
+        <h2 className='admin-portal-heading'>Admin Portal</h2>
+        <p className='portal-view-type'>The following is a record of all your subscriptions</p>
+        <a href="#" className='sort-button' onClick={(e) => { 
           e.preventDefault();
           getSortedSubscriptions();
         }}>
@@ -157,8 +161,8 @@ function App() {
       <main className='App'>
         <h1>~Samovar~</h1>
         <p><i>Premium global teas, to your front door</i></p>
-        <h2>Admin Portal</h2>
-        <p>Subscription Details</p>
+        <h2 className='admin-portal-heading'>Admin Portal</h2>
+        <p className='portal-view-type'>Subscription Details</p>
         <div className='detail-view'>
           <DetailView subscription={selectedSubscription} />
           <button className='backToListButton' onClick={() => handleView("subscriptions_list")}>Back to Subscriptions</button>
