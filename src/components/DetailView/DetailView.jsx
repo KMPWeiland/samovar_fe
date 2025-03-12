@@ -42,6 +42,8 @@ function DetailView( {subscription} ){
     iconToShow = awardTrophy;
   } else if (subscription.attributes.title === "Silver") {
     iconToShow = oliveBranches;
+  } else if (subscription.attributes.title === "Platinum") {
+    iconToShow = awardBadge;
   } else if (subscription.attributes.title === "Business") {
     iconToShow = awardBadge;
   }

@@ -30,7 +30,10 @@ p {
 
 h1 {
   margin: 10px;
-  font-family: 'Brush Script MT', cursive;
+  color: #443850;
+  font-weight: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: 'Brush Script MT', cursive; */
 }
 
 .brush-script {

@@ -7,22 +7,7 @@ import SubscriptionsContainer from '../SubscriptionsContainer/SubscriptionsConta
 import DetailView from '../DetailView/DetailView';
 
 function App() {
-  // const dummySubscriptions = [
-  //   { id: 111,
-  //   title: "Premium",
-  //   price: 61,
-  //   status: "Active",
-  //   frequency: 7,
-  //   customer_id: 114
-  //   }, 
-  //   { id: 222,
-  //     title: "Standard",
-  //     price: 85,
-  //     status: "Cancelled",
-  //     frequency: 2,
-  //     customer_id: 120
-  //     }
-  // ]
+ 
   
   const [subscriptionsData, setSubscriptionsData] = useState({ data: [] });
   const [ selectedSubscriptionId, setSelectedSubscriptionId ] = useState(null);
@@ -136,7 +121,7 @@ function App() {
     return ( 
       <main className='App'>
         <div className='header'>
-          <h1>~Samovar~</h1>
+          <h1>SAMOVAR</h1>
           <img src={samovar} alt="Samovar Image" />
           <p class="brush-script"><i>Premium global teas, to your front door</i></p>
         </div>
@@ -159,7 +144,7 @@ function App() {
     const subscription = subscriptionsData.data?.find( sub => sub.id === selectedSubscriptionId);
     return (
       <main className='App'>
-        <h1>~Samovar~</h1>
+        <h1>SAMOVAR</h1>
         <p><i>Premium global teas, to your front door</i></p>
         <h2 className='admin-portal-heading'>Admin Portal</h2>
         <p className='portal-view-type'>Subscription Details</p>
