@@ -10,28 +10,10 @@ function DetailView( {subscription} ){
   const [subscriptionDetails, setSubscriptionDetails] = useState({})
 
   console.log("subscription IN DETAIL VIEW: ", subscription)
-  // console.log("subscription ATTRIBUTES: ", subscription.attributes)
   if (!subscription) {
     return <div>Loading...</div>;
   }
-
-  // useEffect(() => {
-  //   fetchSubscriptionDetails();
-  // }, [])
-
-  // function fetchSubscriptionDetails() {
-  //   fetch(`http://localhost:3000/api/v1/subscriptions/$subscriptionId`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setSubscriptionDetails(data);
-  //     })
-  //     .catch(error => console.log("ERROR: ", error.message))
-  //   }
-
-  //   const attributes = subscriptionDetails.attributes || subscriptionDetails;
-  //   const customer = subscriptionDetails.relationships?.customer?.data;
-  //   const teas = subscriptionDetails.relationships?.teas?.data || [];
-
+ 
   let iconToShow = teaIcon; 
   
   if (subscription.attributes.title === "Premium") {
@@ -78,47 +60,7 @@ function DetailView( {subscription} ){
         )}
       </div>
     </div> 
-  )
-  
-  
-  // function fetchSubscriptionDetails() {
-  //   fetch(`https://localhost3000.com/api/v1/subscriptions/${subscriptionId}`)
-  //     .then(response => response.json())
-  //     .then(data => setDetails(data))
-  //   .catch(error => console.log(error.message))
-  // }
-
-  // useEffect(() => {
-  //   fetchSubscriptionDetails();
-  // }, [])
-
-  // function formatTeas(teas) {
-  //   if(!genres) return null;
-  //   return genres.map((genre) => {
-  //     return (
-  //       <p key={genre} className='genre'>{genre}</p>
-  //     );
-  //   })
-  // }
-
- 
-
-  // return (
-  //   <section className='subscription-detail-view'>
-  //     <img src={IMAGE FOR SUBSCRIPTION} alt={subscriptionDetails.title}/>
-  //     <div className='subscription-details'>
-  //       <h2>{subscriptionDetails.title}</h2>
-      //   <p>{subscriptionDetails.status}</p>
-  //       <div className='teas'>
-  //         {formatTeas(subscriptionDetails.teas)}
-  //       </div>
-  //       <div className='customers'>
-  //         {formatTeas(subscriptionDetails.customers)}
-  //       </div>
-  //       <p className='Overview'>{subscriptionDetails.overview}</p>
-  //     </div>
-  //   </section>
-  // );
+  )  
 }
 
 export default DetailView;

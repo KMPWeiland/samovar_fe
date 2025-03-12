@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
 import samovar from '../../assets/small-samovar.png'
-// import reactLogo from '../../assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 import SubscriptionsContainer from '../SubscriptionsContainer/SubscriptionsContainer';
 import DetailView from '../DetailView/DetailView';
 
 function App() {
- 
   
   const [subscriptionsData, setSubscriptionsData] = useState({ data: [] });
   const [ selectedSubscriptionId, setSelectedSubscriptionId ] = useState(null);
@@ -39,7 +36,6 @@ function App() {
   }
 
   function handleView(target, id) {
-    console.log(`Changing view to ${target} with subscription ID: ${id}`);
     setView(target);
     
     if (id) {
@@ -53,16 +49,11 @@ function App() {
 
   function fetchSubscriptionDetails(id) {
     if (!id) {
-      console.log("No valid subscription ID provided.");
       return;
     }
-    console.log("Fetching details for subscription ID:", id);
-    console.log("THE selectedSubscriptionId: ", id);
-
     fetch(`http://localhost:3000/api/v1/subscriptions/${id}`)
       .then(response => response.json())
       .then(data => {
-        console.log("Fetched subscription DETAILS:", data);
         setSelectedSubscription(data.data);
       })
       .catch(error => console.log("ERROR: ", error.message))
@@ -77,15 +68,6 @@ function App() {
     if (event) {
       event.stopPropagation();
     }
-
-    console.log(`Deleting subscription with ID: ${id}`);
-
-    
-    // const filteredSubscriptions = subscriptionsData.data.filter(subscription => subscription.id !== id)
-    // setSubscriptionsData(filteredSubscriptions)
-  
-
-  // function handleDeleteSubscription(id){
     fetch(`http://localhost:3000/api/v1/subscriptions/${id}`, {
       method: "DELETE",
       headers: {
@@ -94,8 +76,6 @@ function App() {
     })
     .then(response => {
       if (response.ok) {
-        console.log(`Successfully deleted subscription ${id}`);
-
         if (subscriptionsData.data) {
           const updatedData = subscriptionsData.data.filter(subscription => subscription.id !== id);
           setSubscriptionsData({ ...subscriptionsData, data: updatedData });
@@ -107,15 +87,6 @@ function App() {
     })
     .catch(error => console.error("Error:", error));
   }
-
-
-  // const handleSubscriptionClick = (subscription) => {
-  //   setSeletedSubscriptionId(subscription)
-  // }
-
-  // const handleBackToSubscriptionsList = (subscription) => {
-  //   setSeletedSubscriptionId(null)
-  // }
 
   if (view === "subscriptions_list") {
     return ( 
@@ -157,36 +128,4 @@ function App() {
   }
 }
 
-export default App;
-
-
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
+export default App;  
