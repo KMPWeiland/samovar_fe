@@ -15,7 +15,7 @@ function App() {
     fetch('http://localhost:3000/api/v1/subscriptions')
       .then(response => response.json())
       .then(data => {
-        console.log("Fetched subscriptions:", data);
+        console.log('Subscriptions received in the app:', data);
         setSubscriptionsData(data);
       })
       .catch(error => console.log("ERROR fetching subscriptions:", error.message));
@@ -29,7 +29,7 @@ function App() {
     fetch('http://localhost:3000/api/v1/subscriptions?sort=price')
       .then(response => response.json())
       .then(data => {
-        console.log("Fetched SORTED subscriptions:", data);
+        console.log('SORTED Subscriptions received in the app:', data);
         setSubscriptionsData(data);
       })
       .catch(error => console.log("ERROR fetching sorted subscriptions:", error.message));
@@ -63,7 +63,6 @@ function App() {
    handleView("DetailView", id);
   };
 
-
   function deleteSubscription(id, event) {
     if (event) {
       event.stopPropagation();
@@ -94,7 +93,7 @@ function App() {
         <div className='header'>
           <h1>SAMOVAR</h1>
           <img src={samovar} alt="Samovar Image" />
-          <p class="brush-script"><i>Premium global teas, to your front door</i></p>
+          <p className="brush-script"><i>Premium global teas, to your front door</i></p>
         </div>
         <h2 className='admin-portal-heading'>Admin Portal</h2>
         <p className='portal-view-type'>The following is a record of all your subscriptions</p>

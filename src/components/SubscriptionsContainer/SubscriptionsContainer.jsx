@@ -4,7 +4,8 @@ import './SubscriptionsContainer.css';
 function SubscriptionsContainer({subscriptions, deleteSubscription, onSubscriptionClick}) {
  
   const subscriptionsDetails = subscriptions.data || []
-  const subscriptionCards = subscriptionsDetails.map(subscription => {  
+ 
+  const subscriptionCards = subscriptionsDetails.map((subscription) => {  
     return (
       <Subscription
       key={subscription.id}

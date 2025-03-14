@@ -8,8 +8,6 @@ import oliveBranches from '../../assets/olive-branches-award-symbol-svgrepo-com.
 
 function DetailView( {subscription} ){
   const [subscriptionDetails, setSubscriptionDetails] = useState({})
-
-  console.log("subscription IN DETAIL VIEW: ", subscription)
   if (!subscription) {
     return <div>Loading...</div>;
   }
