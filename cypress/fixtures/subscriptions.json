@@ -1,0 +1,184 @@
+{
+    "data": [
+  {
+      "id": "2",
+      "type": "subscription",
+      "attributes": {
+          "id": 2,
+          "title": "Professional",
+          "price": 71,
+          "status": "Active",
+          "frequency": 14,
+          "customer_id": 8
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "8",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "4",
+      "type": "subscription",
+      "attributes": {
+          "id": 4,
+          "title": "Premium",
+          "price": 14,
+          "status": "Active",
+          "frequency": 20,
+          "customer_id": 4
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "4",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "6",
+      "type": "subscription",
+      "attributes": {
+          "id": 6,
+          "title": "Standard",
+          "price": 73,
+          "status": "Non-Payment",
+          "frequency": 12,
+          "customer_id": 2
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "2",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "8",
+      "type": "subscription",
+      "attributes": {
+          "id": 8,
+          "title": "Standard",
+          "price": 97,
+          "status": "Cancelled",
+          "frequency": 11,
+          "customer_id": 7
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "7",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "9",
+      "type": "subscription",
+      "attributes": {
+          "id": 9,
+          "title": "Starter",
+          "price": 94,
+          "status": "Cancelled",
+          "frequency": 16,
+          "customer_id": 1
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "1",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "10",
+      "type": "subscription",
+      "attributes": {
+          "id": 10,
+          "title": "Essential",
+          "price": 78,
+          "status": "Cancelled",
+          "frequency": 14,
+          "customer_id": 7
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "7",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "5",
+      "type": "subscription",
+      "attributes": {
+          "id": 5,
+          "title": "Bronze",
+          "price": 58,
+          "status": "Cancelled",
+          "frequency": 11,
+          "customer_id": 2
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "2",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "3",
+      "type": "subscription",
+      "attributes": {
+          "id": 3,
+          "title": "Silver",
+          "price": 71,
+          "status": "Cancelled",
+          "frequency": 14,
+          "customer_id": 8
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "8",
+                  "type": "customer"
+              }
+          }
+      }
+  },
+  {
+      "id": "1",
+      "type": "subscription",
+      "attributes": {
+          "id": 1,
+          "title": "Standard",
+          "price": 66,
+          "status": "Cancelled",
+          "frequency": 1,
+          "customer_id": 2
+      },
+      "relationships": {
+          "customer": {
+              "data": {
+                  "id": "2",
+                  "type": "customer"
+              }
+          }
+      }
+  }
+]
+}
